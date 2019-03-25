@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import './Header.css';
-import {  Button, AppBar } from '@material-ui/core';
-import logo from '../../images/logo.png';
-
+import React, { Component } from "react";
+import "./Header.css";
+import { Button, AppBar, Paper } from "@material-ui/core";
+import logo from "../../images/logo.png";
 
 class Header extends Component {
-   constructor(props){
-     super();
-    
-   }
+  constructor(props) {
+    super();
+  }
 
   // componentWillMount(){}
   // componentDidMount(){}
@@ -19,35 +17,47 @@ class Header extends Component {
   // componentWillUpdate(){}
   // componentDidUpdate(){}
 
-handleRegister = ()=>{
+  handleRegister = () => {
+    this.props.handleSignUp(true);
+  };
 
-  this.props.handleSignUp(true)
-}
+  handleLogin = () => {
+    this.props.handleLogin(true);
+  };
 
   render() {
     return (
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-
-      <AppBar color='default'>
       <div className="container-fluid">
-          <div className="row"> 
-              <div className="col">
-                    <img src={logo} alt=" " width='80px' height='80px'></img>
-              </div>
-               <div className="col d-flex align-self-center justify-content-end">
-                    <div className="zoom">
-                    <Button color="primary" variant="outlined" onClick={this.handleRegister} >Register</Button>
-                    </div>
-                    <div className="zoom">
-                    <Button color="primary" variant="outlined" >Login</Button>
-                    </div>
-                
+        <div className="row">
+          <div className="col">
+            <img src={logo} alt=" " width="300px" height="80px" />
+          </div>
+          <div className="col d-flex align-self-center justify-content-end">
+            <div className="zoom">
+              <Button
+                color="primary"
+                variant="outlined"
+                onClick={this.handleRegister}
+              >
+                Register
+              </Button>
             </div>
+            <div className="zoom">
+              <Button
+                color="primary"
+                variant="outlined"
+                onClick={this.handleLogin}
+              >
+                Login
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-      </AppBar>
-      </nav>
+      // </Paper>
+      // <AppBar color="inherit">
 
+      // </AppBar>
     );
   }
 }
